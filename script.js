@@ -1,3 +1,22 @@
+fetch('https://jsonplaceholder.typicode.com/posts/1') //Replace with your API endpoint
+    .then(response =>{
+    //Check if the HTTP request was successful (status code 200)
+    if (!response.ok) {
+        //If not okay, throws the catch method
+        throw new Error('Network response was not ok')
+    }
+    //Parse (or read) the response as JSON
+    return response.json();
+    })
+    .then(data => {
+        //Handle the JSON data
+        console.log('Response data:', data);
+    })
+    .catch(error => {
+        //Handle erros, such as network issues or invalid JSON
+        console.error('Fetch error:', error);
+    })
+ 
 const axios = require('axios');
 async function fetchData() {
     let config = {
